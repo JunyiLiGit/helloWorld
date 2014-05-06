@@ -1,0 +1,6 @@
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_library(helloworld SHARED ${HW_SRC})
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+FIND_PACKAGE(OPENVDB)
+target_link_libraries(helloworld ${OPENVDB_LIBRARIES})
+INSTALL(TARGETS helloworld DESTINATION lib)
